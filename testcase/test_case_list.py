@@ -1,5 +1,5 @@
 from time import sleep
-from deiver import Driver
+from driver import Driver
 import pytest
 
 

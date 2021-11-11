@@ -1,21 +1,17 @@
-import os
-import re
-import time
-
 from config import *
 import pytest
-from deiver import Driver
+from driver import init_driver
 
 
 @pytest.fixture(scope="function")
 def my_fixture():
-    d = Driver().init_driver()
-    d.app_start(Android_bundle_id, lanuch_activity, stop=True)
-    print("打开app")
-    print(type(d))
-    yield d
-    os.popen("adb shell am force-stop com.video.editor.filto")
-    print("测试完成，关闭app")
+    for d in init_driver().__iter__():
+        d.app_start(Android_bundle_id, lanuch_activity, stop=True)
+        print("打开app")
+        print(type(d))
+        yield d
+        os.popen("adb shell am force-stop com.video.editor.filto")
+        print("测试完成，关闭app")
 
 """
 @pytest.fixture(scope="function")
