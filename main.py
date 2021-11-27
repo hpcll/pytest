@@ -1,8 +1,9 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
 import pytest
-import os,subprocess
+import os, subprocess
 from loggers import JFMlogging
+
 logger = JFMlogging().getloger()
 
 
@@ -14,6 +15,7 @@ def init_env():
     logger.info("初始化运行环境!")
     # print("初始化运行环境!")
 
+
 def init_report():
     # cmd = "allure generate --clean data -o reports"
     # subprocess.call(cmd, shell=True)
@@ -21,6 +23,7 @@ def init_report():
     report_path = project_path + "\\report\\" + "index.html"
     # print("报告地址:{}".format(report_path))
     logger.info("报告地址:{}".format(report_path))
+
 
 if __name__ == '__main__':
     init_env()

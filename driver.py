@@ -14,9 +14,11 @@ import time
 import uiautomator2
 from config import *
 from loggers import JFMlogging
+
 logger = JFMlogging().getloger()
 
-def init_driver() -> object:
+
+def init_driver():
     '''
     初始化driver
     is_clear:清除数据
@@ -50,4 +52,3 @@ def init_driver() -> object:
 
 class Driver():
     pass
-

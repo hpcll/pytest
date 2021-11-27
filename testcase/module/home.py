@@ -14,6 +14,7 @@ class Home(Base):
     # 测试用例
 
     def __init__(self, driver):
+        super().__init__(driver)
         self.base = Base(driver)
 
     def setting_tab(self):
