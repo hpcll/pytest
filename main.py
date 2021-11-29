@@ -1,7 +1,8 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
 import pytest
-import os, subprocess
+import os
+import subprocess
 from loggers import JFMlogging
 
 logger = JFMlogging().getloger()
@@ -13,7 +14,6 @@ def init_env():
     cmd = "python -m uiautomator2 init"
     subprocess.call(cmd, shell=True)
     logger.info("初始化运行环境!")
-    # print("初始化运行环境!")
 
 
 def init_report():

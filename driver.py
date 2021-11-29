@@ -32,8 +32,6 @@ def init_driver():
         #     # 手机的IP
         d = uiautomator2.connect(deviceid)
         logger.info("当前连接的设备: {}_{}   设备ID为: {}".format(d.device_info["brand"], device_name, deviceid))
-        # d.app_start(Android_bundle_id, lanuch_activity, stop=True)
-        # logger.info("打开APP")
         time.sleep(5)
         logger.info(device_name)
         logger.info("设备信息:{}".format(d.info))
@@ -41,12 +39,9 @@ def init_driver():
         d.wait_timeout = wait_timeout  # default 20.0
         # 设置点击元素延迟时间
         d.click_post_delay = click_post_delay
-        # d.service("uiautomator").stop()
-        logger.info("连接设备:{}_{}".format(d.device_info["brand"], device_name))
         return d
 
     except Exception as e:
-        # print("初始化driver异常!{}".format(e))
         logger.info("初始化driver异常!{}".format(e))
 
 

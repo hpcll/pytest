@@ -13,12 +13,10 @@ logger = JFMlogging().getloger()
 
 @pytest.fixture()
 def function_fixture2(request):
-    print("function_fixture2================",type(request.instance))
+    # print("function_fixture2================",type(request.instance))
     request.instance.driver = init_driver()
     request.instance.driver.app_start(Android_bundle_id, lanuch_activity, stop=True)
     logger.info("打开APP")
-
-    # yield d
     def driver_teardown():
         os.popen("adb shell am force-stop com.video.editor.filto")
         logger.info("测试完成，关闭app")
@@ -64,16 +62,3 @@ def module_fixture():
 #         return base64_str
 #     except Exception as e:
 #         logger.info("{}截图失败!{}".format(pic_name, e))
-
-def Screenshot_img(device_name, mz):
-    """截图"""
-    path = '{}/screenshots/{}'.format(os.getcwd(), device_name)
-    if os.path.exists(path):
-        print("{}截图中。。。".format(mz))
-        d.screenshot('{}/{}.png'.format(path, mz))
-        print("{}截图完成.....".format(mz))
-    else:
-        os.makedirs(path)
-        print("{}截图中。。。".format(mz))
-        d.screenshot('{}/{}.png'.format(path, mz))
-        print("{}截图完成.....".format(mz))

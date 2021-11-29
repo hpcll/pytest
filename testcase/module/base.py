@@ -163,3 +163,15 @@ class Base:
         '''
         assert self.find_elements(element) == True, "断言{}元素存在,失败!".format(element)
         logger.info("断言{}元素存在,成功!".format(element))
+
+    def Screenshot_img(self,mz):
+        """截图"""
+        if os.path.exists(path):
+            print("{}截图中。。。".format(mz))
+            self.d.screenshot('{}/{}_{}.png'.format(path, time_str, mz))
+            print("{}截图完成.....".format(mz))
+        else:
+            os.makedirs(path)
+            print("{}截图中。。。".format(mz))
+            self.d.screenshot('{}/{}_{}.png'.format(path, time_str, mz))
+            print("{}截图完成.....".format(mz))
