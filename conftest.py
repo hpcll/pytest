@@ -7,7 +7,6 @@ from config import *
 import pytest
 from driver import init_driver
 from loggers import JFMlogging
-
 logger = JFMlogging().getloger()
 
 

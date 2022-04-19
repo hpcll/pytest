@@ -1,0 +1,15 @@
+INFO     root:driver.py:34 当前连接的设备: Redmi_M2007J22C   设备ID为: kbrkug6dkr5xibjr
+INFO     root:driver.py:36 M2007J22C
+INFO     root:driver.py:37 设备信息:{'currentPackageName': 'com.miui.home', 'displayHeight': 2197, 'displayRotation': 0, 'displaySizeDpX': 393, 'displaySizeDpY': 851, 'displayWidth': 1080, 'productName': 'cannon', 'screenOn': True, 'sdkInt': 30, 'naturalOrientation': True}
+INFO     root:conftest.py:18 打开APP
+INFO     root:test_home.py:17 初始化首页模块
+INFO     root:base.py:44 点击元素:设置
+INFO     root:base.py:175 设置截图中。。。
+INFO     root:base.py:177 设置截图完成.....
+INFO     root:home.py:25 从首页进入设置页
+INFO     root:base.py:44 点击元素:发现页
+INFO     root:base.py:170 发现页截图中。。。
+INFO     root:base.py:172 发现页截图完成.....
+INFO     root:home.py:32 返回发现页
+INFO     root:test_home.py:20 结束首页模块
+INFO     root:conftest.py:21 测试完成，关闭app

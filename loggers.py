@@ -7,6 +7,7 @@ import os.path
 import socket
 import logging
 import logging.handlers
+from config import *
 logging.basicConfig()
 
 
@@ -27,18 +28,20 @@ class JFMlogging(object):
     def __init__(self):
         host_name = socket.gethostname()
         # ip = socket.gethostbyname(host_name)
-        logging_msg_format = '[%(asctime)s] [%(levelname)s] [' + host_name + '][%(module)s.py - line:%(lineno)d] %(message)s'
-        logging_date_format = '%Y-%m-%d %H:%M:%S'
+        # logging_msg_format = '[%(asctime)s] [%(levelname)s] [' + host_name + '][%(module)s.py - line:%(lineno)d] %(message)s'
+        # logging_date_format = '%Y-%m-%d %H:%M:%S'
         log_path = 'logs'  # 日志存放目录
-        logging.basicConfig(level=logging.INFO, format=logging_msg_format, datefmt=logging_date_format)
+        # logging.basicConfig(level=logging.INFO, format=logging_msg_format, datefmt=logging_date_format)
         self.logger.setLevel(logging.INFO)
 
         if not os.path.exists(log_path):
             os.mkdir(log_path)
-        log_file = os.path.join(log_path, 'system.log')
+        log_name = time_str + "_system.log"
+        log_file = os.path.join(log_path, log_name)
+
 
         fileHandler = logging.handlers.TimedRotatingFileHandler(log_file, 'midnight', 1)
-        fileHandler.setFormatter(logging.Formatter(logging_msg_format))
+        # fileHandler.setFormatter(logging.Formatter(logging_msg_format))
         self.logger.addHandler(fileHandler)
 
     def getloger(self):

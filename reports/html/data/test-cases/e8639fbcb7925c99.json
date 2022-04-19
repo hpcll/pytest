@@ -1,0 +1,66 @@
+{
+  "uid" : "e8639fbcb7925c99",
+  "name" : "test_register_success",
+  "fullName" : "testcase.case.test_case.TestRegister#test_register_success",
+  "historyId" : "ec1f6252890d5661c0bf385806d70ddb",
+  "time" : {
+    "start" : 1649911862708,
+    "stop" : 1649911862708,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "newBroken" : false,
+  "newPassed" : false,
+  "retriesCount" : 0,
+  "retriesStatusChange" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "story",
+    "value" : "注册成功"
+  }, {
+    "name" : "feature",
+    "value" : "注册"
+  }, {
+    "name" : "parentSuite",
+    "value" : "testcase.case"
+  }, {
+    "name" : "suite",
+    "value" : "test_case"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestRegister"
+  }, {
+    "name" : "host",
+    "value" : "bogon"
+  }, {
+    "name" : "thread",
+    "value" : "3332-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "testcase.case.test_case"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "e8639fbcb7925c99.json",
+  "parameterValues" : [ ]
+}

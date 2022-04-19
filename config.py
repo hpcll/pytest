@@ -1,7 +1,7 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
 import datetime
-import os,re
+import os, re
 import uiautomator2 as u2
 
 msg = os.popen("adb devices -l").read()
@@ -38,4 +38,4 @@ now_time = datetime.datetime.now()
 #将当前时间按自己想要的格式转换
 time_str = datetime.datetime.strftime(now_time, '%Y-%m-%d_%H-%M-%S')
 #截图储存路径
-path = '{}/screenshots/{}'.format(os.getcwd(), device_name)
+path = '{}/screenshots/{}_{}'.format(os.getcwd(), time_str, device_name)

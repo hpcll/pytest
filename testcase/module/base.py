@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 """
-@Author  : xinxi
-@Time    : 2018/12/5 18:34
+@Author  : hupc
+@Time    : 2021/12/5 18:34
 @describe: 对元素基本操作封装
 """
 import pytest
@@ -167,11 +167,11 @@ class Base:
     def Screenshot_img(self,mz):
         """截图"""
         if os.path.exists(path):
-            print("{}截图中。。。".format(mz))
-            self.d.screenshot('{}/{}_{}.png'.format(path, time_str, mz))
-            print("{}截图完成.....".format(mz))
+            logger.info("{}截图中。。。".format(mz))
+            self.d.screenshot('{}/{}.png'.format(path, mz))
+            logger.info("{}截图完成.....".format(mz))
         else:
             os.makedirs(path)
-            print("{}截图中。。。".format(mz))
-            self.d.screenshot('{}/{}_{}.png'.format(path, time_str, mz))
-            print("{}截图完成.....".format(mz))
+            logger.info("{}截图中。。。".format(mz))
+            self.d.screenshot('{}/{}.png'.format(path, mz))
+            logger.info("{}截图完成.....".format(mz))
