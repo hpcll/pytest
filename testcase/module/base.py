@@ -6,9 +6,9 @@
 @Time    : 2021/12/5 18:34
 @describe: 对元素基本操作封装
 """
-import pytest
 from loggers import JFMlogging
 from config import *
+from appium.webdriver.common.appiumby import AppiumBy
 
 logger = JFMlogging().getloger()
 
@@ -35,13 +35,19 @@ class Base:
         d.xpath(u"//android.widget.TextView[starts-with(@text,'购买 ¥')]").click()
         :return:
         '''
-        if str(element).startswith("com"):
-            self.d(resourceId=element).click()
+        if str(element).startswith("filto"):
+            self.d.find_element(AppiumBy.ACCESSIBILITY_ID,element).click()
         elif re.findall("//", str(element)):
-            self.d.xpath(element).click()
+            self.d.find_element(AppiumBy.XPATH, element).click()
+        elif re.findall("\*\*/", str(element)):
+            self.d.find_element(AppiumBy.IOS_CLASS_CHAIN, element).click()
+        elif str(element).startswith("label"):
+            self.d.find_element(AppiumBy.IOS_PREDICATE,element).click()
         else:
-            self.d(text=element).click()
+            self.d.find_element(AppiumBy.NAME,element)
         logger.info("点击元素:{}".format(logtext))
+
+
 
     def send_keys(self, element, sendtext, logtext):
         '''
@@ -52,8 +58,18 @@ class Base:
         logtext:打印log的文案
         :return:
         '''
-        self.d(resourceId=element).set_text(sendtext)
+        if str(element).startswith("filto"):
+            self.d.find_element(AppiumBy.ACCESSIBILITY_ID, element).send_keys(sendtext)
+        elif re.findall("//", str(element)):
+            self.d.find_element(AppiumBy.XPATH, element).send_keys(sendtext)
+        elif re.findall("\*\*/", str(element)):
+            self.d.find_element(AppiumBy.IOS_CLASS_CHAIN, element).send_keys(sendtext)
+        elif str(element).startswith("label"):
+            self.d.find_element(AppiumBy.IOS_PREDICATE, element).send_keys(sendtext)
+        else:
+            self.d.find_element(AppiumBy.NAME, element).send_keys(sendtext)
         logger.info(logtext)
+
 
     def click_web(self, element, logtext):
         '''
@@ -67,8 +83,8 @@ class Base:
 
     def double_click(self, x, y, time=0.5):
         '''
-        双击
-        :return:
+        双击:
+        return:
         '''
         self.d.double_click(x, y, time)
         logger.info("点击坐标:{},{}".format(x, y))
@@ -78,7 +94,7 @@ class Base:
         获取屏幕尺寸
         :return:
         '''
-        window_size = self.d.window_size()
+        window_size = self.d.get_window_size()
         width = int(window_size[0])
         height = int(window_size[1])
         return width, height
@@ -88,6 +104,7 @@ class Base:
         向上滑动
         :return:
         '''
+        self.d.drag()
         self.d.drag(self.width / 2, self.height * 3 / 4, self.width / 2, self.height / 4, time)
         logger.info("向下滑动")
 
