@@ -1,7 +1,0 @@
-"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Thu Apr 14 12:51:02 CST 2022","Thu Apr 14 12:51:02 CST 2022","0","testcase.case","test_case","TestRegister","","","test_register_failure",""
-"passed","Thu Apr 14 12:51:02 CST 2022","Thu Apr 14 12:51:02 CST 2022","0","testcase.case","test_case","TestLogin","","","test_login_success",""
-"passed","Thu Apr 14 12:51:02 CST 2022","Thu Apr 14 12:51:02 CST 2022","0","testcase.case","test_case","TestLogin","","","test_login_failure_a",""
-"passed","Thu Apr 14 12:51:02 CST 2022","Thu Apr 14 12:51:02 CST 2022","0","testcase.case","test_case","TestRegister","","","test_register_success",""
-"failed","Thu Apr 14 12:51:02 CST 2022","Thu Apr 14 12:51:02 CST 2022","3","testcase.case","test_case","TestLogin","","","test_login_failure",""
-"passed","Thu Apr 14 12:51:13 CST 2022","Thu Apr 14 12:51:16 CST 2022","3422","testcase.case","test_home","TestHome","","","test_home_setting","打开设备并返回发现页"
