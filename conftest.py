@@ -12,33 +12,29 @@ logger = JFMlogging().getloger()
 
 @pytest.fixture()
 def function_fixture2(request):
-    # print("function_fixture2================",type(request.instance))
     request.instance.driver = init_driver()
-    request.instance.driver.app_start(Android_bundle_id, lanuch_activity, stop=True)
     logger.info("打开APP")
     def driver_teardown():
-        os.popen("adb shell am force-stop com.video.editor.filto")
         logger.info("测试完成，关闭app")
+        request.instance.driver.close_app()
     request.addfinalizer(driver_teardown)
 
 
 @pytest.fixture(scope="class")
 def class_fixture():
     d = init_driver()
-    d.app_start(Android_bundle_id, lanuch_activity, stop=True)
     logger.info("打开APP")
     yield d
-    os.popen("adb shell am force-stop com.video.editor.filto")
+    d.close_app()
     logger.info("测试完成，关闭app")
 
 
 @pytest.fixture(scope="module")
 def module_fixture():
     d = init_driver()
-    d.app_start(Android_bundle_id, lanuch_activity, stop=True)
     logger.info("打开APP")
     yield d
-    os.popen("adb shell am force-stop com.video.editor.filto")
+    d.close_app()
     logger.info("测试完成，关闭app")
 
 

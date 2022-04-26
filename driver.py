@@ -10,13 +10,11 @@ import uiautomator2 as u2
 @Time    : 2021/11/10 18:34
 @describe: 创建Appium
 """
-import time
-import uiautomator2
+
 from config import *
 from loggers import JFMlogging
 from appium import webdriver
-from appium.webdriver.common.appiumby import AppiumBy
-import time
+
 
 logger = JFMlogging().getloger()
 
@@ -29,29 +27,17 @@ def init_driver():
     '''
     try:
         caps = {}
-        caps["platformName"] = "iOS"
-        caps["appium:platformVersion"] = "14.6"
-        caps["appium:deviceName"] = "iPhone8 PLUS"
-        caps["appium:bundleId"] = "com.pinsotech.filto"
-        caps["appium:udid"] = "f1273ada5252d874bb994cf9bb4882c61c6f5109"
+        caps["platformName"] = PlatformName
+        caps["appium:platformVersion"] = ProductVersion
+        caps["appium:deviceName"] = DeviceName
+        caps["appium:bundleId"] = iOS_bundle_id
+        caps["appium:udid"] = Udid
         caps["appium:includeSafariInWebviews"] = True
-        caps["appium:newCommandTimeout"] = 3600
+        caps["appium:newCommandTimeout"] = newCommandTimeout
         caps["appium:connectHardwareKeyboard"] = True
         d = webdriver.Remote("http://127.0.0.1:4723/wd/hub", caps)
-        # d = uiautomator2.connect(deviceid)
-        # logger.info("当前连接的设备: {}_{}   设备ID为: {}".format(d.device_info["brand"], device_name, deviceid))
-        # time.sleep(5)
-        # logger.info(device_name)
-        # logger.info("设备信息:{}".format(d.info))
-        # # 设置全局寻找元素超时时间
-        # d.wait_timeout = wait_timeout  # default 20.0
-        # # 设置点击元素延迟时间
-        # d.click_post_delay = click_post_delay
+        logger.info("当前连接的设备:{}   设备UDID为: {}".format(DeviceName, Udid))
         return d
 
     except Exception as e:
         logger.info("初始化driver异常!{}".format(e))
-
-
-class Driver():
-    pass

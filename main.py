@@ -21,6 +21,6 @@ def init_report():
 
 
 if __name__ == '__main__':
-    pytest.main(['-s', '-v', 'testcase/case/', '-q', '--alluredir', './reports/result'])
-    init_report()
+    pytest.main(['-s', '-v', 'testcase/case/test_home.py', '-q', '--alluredir', './reports/result'])
+    # init_report()
 

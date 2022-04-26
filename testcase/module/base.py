@@ -16,6 +16,7 @@ logger = JFMlogging().getloger()
 class Base:
 
     def __init__(self, driver):
+        # wait_timeout(5)
         self.d = driver
         self.width = self.get_windowsize()[0]
         self.height = self.get_windowsize()[1]
@@ -39,12 +40,12 @@ class Base:
             self.d.find_element(AppiumBy.ACCESSIBILITY_ID,element).click()
         elif re.findall("//", str(element)):
             self.d.find_element(AppiumBy.XPATH, element).click()
-        elif re.findall("\*\*/", str(element)):
+        elif re.findall("\*\*", str(element)):
             self.d.find_element(AppiumBy.IOS_CLASS_CHAIN, element).click()
         elif str(element).startswith("label"):
             self.d.find_element(AppiumBy.IOS_PREDICATE,element).click()
         else:
-            self.d.find_element(AppiumBy.NAME,element)
+            self.d.find_element(AppiumBy.NAME,element).click()
         logger.info("点击元素:{}".format(logtext))
 
 
@@ -94,27 +95,28 @@ class Base:
         获取屏幕尺寸
         :return:
         '''
+        print("aaaaa",self.d)
         window_size = self.d.get_window_size()
-        width = int(window_size[0])
-        height = int(window_size[1])
+        width = int(window_size["width"])
+        height = int(window_size["height"])
+
         return width, height
 
-    def swip_down(self, time=0.5):
+    def swip_down(self, time=1):
         '''
         向上滑动
         :return:
         '''
-        self.d.drag()
-        self.d.drag(self.width / 2, self.height * 3 / 4, self.width / 2, self.height / 4, time)
-        logger.info("向下滑动")
+        self.d.swipe(self.width / 2, self.height * 3 / 4, self.width / 2, self.height / 4, time)
+        logger.info("向上滑动")
 
-    def swip_up(self, time=0.5):
+    def swip_up(self, time=1):
         '''
         向下滑动
         :return:
         '''
-        self.d.drag(self.width / 2, self.height / 4, self.width / 2, self.height * 3 / 4, time)
-        logger.info("向上滑动")
+        self.d.swipe(self.width / 2, self.height / 4, self.width / 2, self.height * 3 / 4, time)
+        logger.info("向下滑动")
 
     def swip_down_element(self, element):
         '''
@@ -125,9 +127,9 @@ class Base:
         max_count = 5
         while max_count > 0:
             if self.find_elements(element):
-                logger.info("向下滑动到:{}".format(element))
+                logger.info("向上滑动到:{}".format(element))
             else:
-                self.swip_down()
+                self.swip_up()
                 max_count -= 1;
                 logger.info("向下滑动")
 
@@ -147,7 +149,7 @@ class Base:
         is_exited = False
         try:
             while timeout > 0:
-                xml = self.d.dump_hierarchy()
+                xml = self.d.page_source
                 if re.findall(element, xml):
                     is_exited = True
                     logger.info("查询到{}".format(element))
@@ -181,14 +183,23 @@ class Base:
         assert self.find_elements(element) == True, "断言{}元素存在,失败!".format(element)
         logger.info("断言{}元素存在,成功!".format(element))
 
+
     def Screenshot_img(self,mz):
         """截图"""
         if os.path.exists(path):
             logger.info("{}截图中。。。".format(mz))
-            self.d.screenshot('{}/{}.png'.format(path, mz))
+            self.d.save_screenshot('{}/{}.png'.format(path, mz))
             logger.info("{}截图完成.....".format(mz))
         else:
             os.makedirs(path)
             logger.info("{}截图中。。。".format(mz))
-            self.d.screenshot('{}/{}.png'.format(path, mz))
+            self.d.save_screenshot('{}/{}.png'.format(path, mz))
             logger.info("{}截图完成.....".format(mz))
+
+
+    def wait_sleep(self,time):
+        """
+        :param time: 单位：秒
+        :return:
+        """
+        self.d.implicitly_wait(time)
