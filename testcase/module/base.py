@@ -3,8 +3,8 @@
 
 """
 @Author  : hupc
-@Time    : 2021/12/5 18:34
-@describe: 对元素基本操作封装
+@Time    : 2022/04/28 18:34
+@describe: 对元素基本操作封装 iOS
 """
 from loggers import JFMlogging
 from config import *
