@@ -10,6 +10,12 @@ from loggers import JFMlogging
 logger = JFMlogging().getloger()
 
 
+def function_fixture():
+    def driver_teardown():
+        os.popen("tidevice fsync -B {} rm /Documents/log.json".format(iOS_bundle_id))
+        print("清除 log")
+
+
 @pytest.fixture()
 def function_fixture2(request):
     request.instance.driver = init_driver()
