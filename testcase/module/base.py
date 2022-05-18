@@ -36,7 +36,7 @@ class Base:
         d.xpath(u"//android.widget.TextView[starts-with(@text,'购买 ¥')]").click()
         :return:
         '''
-        if str(element).startswith("filto"):
+        if str(element).startswith(""):
             self.d.find_element(AppiumBy.ACCESSIBILITY_ID,element).click()
         elif re.findall("//", str(element)):
             self.d.find_element(AppiumBy.XPATH, element).click()
@@ -45,7 +45,7 @@ class Base:
         elif str(element).startswith("label"):
             self.d.find_element(AppiumBy.IOS_PREDICATE,element).click()
         else:
-            self.d.find_element(AppiumBy.NAME,element).click()
+            self.d.find_element(AppiumBy.ACCESSIBILITY_ID,element).click()
         logger.info("点击元素:{}".format(logtext))
 
 
