@@ -1,6 +1,6 @@
 import pytest
 import allure
-from testcase.module.Home import Home
+from testcase.module.HomePage import Home
 from loggers import JFMlogging
 logger = JFMlogging().getloger()
 
