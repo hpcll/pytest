@@ -1,4 +1,8 @@
-import os, re
+"""
+@Author  : hupc
+@Time    : 2022/05/16 18:34
+@describe: （Filto）协助monkey工具，切换编辑页模块
+"""
 import time
 from config import *
 from appium.webdriver.common.appiumby import AppiumBy
