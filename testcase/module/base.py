@@ -186,11 +186,13 @@ class Base:
         if os.path.exists(path):
             logger.info("{}截图中。。。".format(mz))
             self.d.save_screenshot('{}/{}.png'.format(path, mz))
+            # os.popen("tidevice screenshot {}.jpg".format(path, mz))
             logger.info("{}截图完成.....".format(mz))
         else:
             os.makedirs(path)
             logger.info("{}截图中。。。".format(mz))
             self.d.save_screenshot('{}/{}.png'.format(path, mz))
+            # os.popen("tidevice screenshot {}/{}.jpg".format(path, mz))
             logger.info("{}截图完成.....".format(mz))
 
     def wait_sleep(self, time):
