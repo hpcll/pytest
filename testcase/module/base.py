@@ -18,8 +18,8 @@ class Base:
     def __init__(self, driver):
         # wait_timeout(5)
         self.d = driver
-        self.width = self.get_windowsize()[0]
-        self.height = self.get_windowsize()[1]
+        # self.width = self.get_windowsize()[0]
+        # self.height = self.get_windowsize()[1]
 
     def click(self, element, logtext):
         """
@@ -92,7 +92,6 @@ class Base:
         获取屏幕尺寸
         :return:
         """
-        print("aaaaa", self.d)
         window_size = self.d.get_window_size()
         width = int(window_size["width"])
         height = int(window_size["height"])

@@ -1,7 +1,3 @@
-import os
-import re
-import uiautomator2 as u2
-
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
 
@@ -14,17 +10,17 @@ import uiautomator2 as u2
 from config import *
 from loggers import JFMlogging
 from appium import webdriver
-import subprocess
 
 logger = JFMlogging().getloger()
 
 
 def init_driver():
-    '''
+    """
     初始化driver
     is_clear:清除数据
     :return:
-    '''
+    """
+
     try:
         caps = {}
         caps["platformName"] = PlatformName
@@ -46,3 +42,9 @@ def init_driver():
     except Exception as e:
         logger.info("初始化driver异常!{}".format(e))
 
+if __name__ == '__main__':
+    d = init_driver()
+    window_size = d.get_window_size()
+    width = int(window_size["width"])
+    height = int(window_size["height"])
+    print(width, height)

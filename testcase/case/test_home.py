@@ -1,6 +1,6 @@
 import pytest
 import allure
-from testcase.module.HomePage import Home
+from testcase.module.HomePage import HOME
 from loggers import JFMlogging
 logger = JFMlogging().getloger()
 
@@ -14,7 +14,7 @@ class TestHome:
     def init(self):
         print("==============================init=============================")
         print(self.driver)
-        self.home = Home(self.driver)
+        self.home = HOME(self.driver)
         logger.info("初始化首页模块")
         yield self.home
         # do something
@@ -24,6 +24,4 @@ class TestHome:
         init.wait_sleep(5)
         "打开设备并返回发现页"
         print("==============================test_home_setting=============================")
-        init.setting_tab()
-        init.wait_sleep(3)
-        init.discover_tab()
+        init.in_mine()

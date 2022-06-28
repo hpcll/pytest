@@ -5,13 +5,12 @@ import os, re
 
 #部分设备信息获取
 Udid = os.popen("idevice_id -l").read().replace('\n', '').replace('\r', '')
-print(Udid)
 DeviceName = os.popen("ideviceinfo -u {} -k DeviceName".format(Udid)).read().replace('\n', '').replace('\r', '')
 ProductVersion = os.popen("ideviceinfo -u {} -k ProductVersion".format(Udid)).read().replace('\n', '').replace('\r', '')
 PlatformName = "iOS"
 #ios app包名
 # iOS_bundle_id = "com.pinsotech.filto"
-iOS_bundle_id = "com.gpower.filtoDevelopment1"
+iOS_bundle_id = "com.gpower.filtoDevelopment"
 
 #Android APP包名
 Android_bundle_id = "com.video.editor.filto"
