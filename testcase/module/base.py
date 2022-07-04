@@ -9,6 +9,7 @@
 from loggers import JFMlogging
 from config import *
 from appium.webdriver.common.appiumby import AppiumBy
+from time import sleep
 
 logger = JFMlogging().getloger()
 
@@ -18,8 +19,8 @@ class Base:
     def __init__(self, driver):
         # wait_timeout(5)
         self.d = driver
-        # self.width = self.get_windowsize()[0]
-        # self.height = self.get_windowsize()[1]
+        self.width = self.get_windowsize()[0]
+        self.height = self.get_windowsize()[1]
 
     def click(self, element, logtext):
         """
@@ -180,7 +181,7 @@ class Base:
         assert self.find_elements(element) is True, "断言{}元素存在,失败!".format(element)
         logger.info("断言{}元素存在,成功!".format(element))
 
-    def Screenshot_img(self, mz):
+    def screenshot_img(self, mz):
         """截图"""
         if os.path.exists(path):
             logger.info("{}截图中。。。".format(mz))
@@ -200,3 +201,12 @@ class Base:
         :return:
         """
         self.d.implicitly_wait(time)
+
+    def click_and_screenshot(self, accessibility_id, accessibility_text, sleep_time):
+        self.click(accessibility_id, accessibility_text)
+        sleep(sleep_time)
+        self.screenshot_img(accessibility_text)
+        logger.info("点击{}".format(accessibility_text))
+
+    def default_click_screenshot(self, accessibility_id, accessibility_text):
+        self.click_and_screenshot(accessibility_id, accessibility_text, 1)
