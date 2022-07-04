@@ -16,7 +16,7 @@ album_video_text = "相册页视频按钮"
 album_image = "album_image"
 album_image_text = "相册页图片按钮"
 
-album_index = "album_1_1"
+album_index = "album_source_1"
 album_index_text = "相册页选择资源"
 
 
@@ -26,35 +26,19 @@ class Album(Base):
 
     @allure.story("退出相册页")
     def click_album_back(self):
-        # print(self.d)
-        self.click(album_back, album_back_text)
-        sleep(1)
-        self.Screenshot_img(album_back_text)
-        logger.info("退出相册页")
+        self.default_click_screenshot(album_back, album_back_text)
 
     @allure.story("切换至视频tab")
     def click_album_video(self):
-        # print(self.d)
-        self.click(album_video, album_video_text)
-        sleep(1)
-        self.Screenshot_img(album_video_text)
-        logger.info("切换至视频tab")
+        self.default_click_screenshot(album_video, album_video_text)
 
     @allure.story("切换至图片tab")
     def click_album_video(self):
-        # print(self.d)
-        self.click(album_image, album_image_text)
-        sleep(1)
-        self.Screenshot_img(album_image_text)
-        logger.info("切换至图片tab")
+        self.default_click_screenshot(album_image, album_image_text)
 
     @allure.story("点击相册页素材")
     def click_album_video(self):
-        # print(self.d)
-        self.click(album_index, album_index_text)
-        sleep(1)
-        self.Screenshot_img(album_index_text)
-        logger.info("点击相册页素材")
+        self.default_click_screenshot(album_index, album_index_text)
 
 
 
