@@ -10,6 +10,7 @@
 from config import *
 from loggers import JFMlogging
 from appium import webdriver
+from appium.options.common.base import AppiumOptions
 
 logger = JFMlogging().getloger()
 
@@ -22,25 +23,26 @@ def init_driver():
     """
 
     try:
-        caps = {}
-        caps["platformName"] = PlatformName
-        caps["appium:platformVersion"] = ProductVersion
-        caps["appium:deviceName"] = DeviceName
-        caps["appium:bundleId"] = iOS_bundle_id
-        caps["appium:udid"] = Udid
-        # caps["appium:includeSafariInWebviews"] = True
-        # caps["appium:newCommandTimeout"] = newCommandTimeout
-        # caps["appium:connectHardwareKeyboard"] = True
-        caps["appium:usePrebuiltWDA"] = False
-        caps["appium:useXctestrunFile"] = False
-        caps["appium:skipLogCapture"] = True
-        # caps["appium:webDriverAgentUrl"] = "http://127.0.0.1:8100"
-        d = webdriver.Remote("http://127.0.0.1:4723/wd/hub", caps)
-        logger.info("当前连接的设备:{} 设备UDID为: {}".format(DeviceName, Udid))
-        return d
+
+        options = AppiumOptions()
+        options.load_capabilities({
+            "platformName": PlatformName,
+            "appium:platformVersion": ProductVersion,
+            "appium:deviceName": DeviceName,
+            "appium:bundleId": iOS_bundle_id,
+            "appium:udid": Udid,
+            "appium:automationName": "XCUITest",
+            "appium:includeSafariInWebviews": True,
+            "appium:newCommandTimeout": 3600,
+            "appium:connectHardwareKeyboard": True
+        })
+
+        driver = webdriver.Remote("http://127.0.0.1:4723", options=options)
+        return driver
 
     except Exception as e:
         logger.info("初始化driver异常!{}".format(e))
+
 
 if __name__ == '__main__':
     d = init_driver()

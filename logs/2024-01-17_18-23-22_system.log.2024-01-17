@@ -1,0 +1,4 @@
+初始化driver异常!'NoneType' object has no attribute 'to_capabilities'
+打开APP
+测试完成，关闭app
+报告地址:/Users/hpc/pytest/reports/html/index.html

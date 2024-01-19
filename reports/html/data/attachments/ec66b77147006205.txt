@@ -1,0 +1,5 @@
+INFO     root:conftest.py:22 打开APP
+INFO     root:test_home.py:18 初始化首页模块
+INFO     root:base.py:50 点击元素:我的页面
+INFO     root:test_home.py:21 结束首页模块
+INFO     root:conftest.py:24 测试完成，关闭app

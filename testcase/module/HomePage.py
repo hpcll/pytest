@@ -34,7 +34,7 @@ class HOME(Base):
         # print(self.d)
         self.click(plus, plus_text)  # 点击 +
         sleep(1)
-        self.Screenshot_img(plus_text)
+        self.screenshot_img(plus_text)
         logger.info("点击首页+")
 
     @allure.story("进入发现页面")
@@ -42,7 +42,7 @@ class HOME(Base):
         # print(self.d)
         self.click(find, find_text)
         sleep(1)
-        self.Screenshot_img(find_text)
+        self.screenshot_img(find_text)
         logger.info("进入发现页面")
 
     @allure.story("进入我的页面")
@@ -50,7 +50,7 @@ class HOME(Base):
         # print(self.d)
         self.click(mine, mine_text)
         sleep(1)
-        self.Screenshot_img(mine_text)
+        self.screenshot_img(mine_text)
         logger.info("进入我的页面")
 
     @allure.story("点击首页banner")
@@ -58,7 +58,7 @@ class HOME(Base):
         # print(self.d)
         self.click(banner, banner_text)
         sleep(1)
-        self.Screenshot_img(banner_text)
+        self.screenshot_img(banner_text)
         logger.info("点击点击首页banner")
 
     @allure.story("点击首页订阅入口")
@@ -67,12 +67,12 @@ class HOME(Base):
         if self.find_elements(sub_verify):
             self.click(sub_verify, sub_verify_text)
             sleep(1)
-            self.Screenshot_img(sub_verify_text)
+            self.screenshot_img(sub_verify_text)
             logger.info("点击首页审核状态下的订阅入口")
         elif self.find_elements(sub_not_verify):
             self.click(sub_verify, sub_not_verify_text)
             sleep(1)
-            self.Screenshot_img(sub_not_verify_text)
+            self.screenshot_img(sub_not_verify_text)
             logger.info("点击非首页审核状态下的订阅入口")
         else:
             print("未找到首页订阅入口。")

@@ -1,0 +1,1 @@
+{"17142cef98b9a9a0b92c93bb7b9e39b0":{"statistic":{"failed":0,"broken":1,"skipped":0,"passed":0,"unknown":0,"total":1},"items":[{"uid":"3f9325abfea03a22","status":"broken","statusDetails":"AttributeError: 'NoneType' object has no attribute 'get_window_size'","time":{"start":1705654052628,"stop":1705654052628,"duration":0}}]}}

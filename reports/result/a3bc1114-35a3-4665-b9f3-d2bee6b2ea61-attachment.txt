@@ -1,0 +1,17 @@
+INFO     root:conftest.py:22 打开APP
+INFO     root:test_home.py:19 初始化首页模块
+INFO     root:base.py:50 点击元素:我的页面
+INFO     root:base.py:193 我的页面截图中。。。
+INFO     root:base.py:196 我的页面截图完成.....
+INFO     root:HomePage.py:54 进入我的页面
+INFO     root:base.py:50 点击元素:发现页
+INFO     root:base.py:187 发现页截图中。。。
+INFO     root:base.py:190 发现页截图完成.....
+INFO     root:HomePage.py:46 进入发现页面
+INFO     root:base.py:152 查询到home_subscription_verify
+INFO     root:base.py:50 点击元素:首页审核状态下的订阅入口
+INFO     root:base.py:187 首页审核状态下的订阅入口截图中。。。
+INFO     root:base.py:190 首页审核状态下的订阅入口截图完成.....
+INFO     root:HomePage.py:71 点击首页审核状态下的订阅入口
+INFO     root:test_home.py:21 结束首页模块
+INFO     root:conftest.py:24 测试完成，关闭app

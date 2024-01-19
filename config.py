@@ -9,8 +9,10 @@ DeviceName = os.popen("ideviceinfo -u {} -k DeviceName".format(Udid)).read().rep
 ProductVersion = os.popen("ideviceinfo -u {} -k ProductVersion".format(Udid)).read().replace('\n', '').replace('\r', '')
 PlatformName = "iOS"
 #ios app包名
-# iOS_bundle_id = "com.pinsotech.filto"
-iOS_bundle_id = "com.gpower.filtoDevelopment"
+iOS_bundle_id = "com.pinsotech.filto"
+# iOS_bundle_id = "com.gpower.filtoDevelopment"
+#ideviceinfo -u 00008120-001C3C463E63C01E -k DeviceName
+#ideviceinfo -u 00008120-001C3C463E63C01E -k ProductVersio
 
 #Android APP包名
 Android_bundle_id = "com.video.editor.filto"

@@ -1,0 +1,15 @@
+INFO     root:driver.py:43 初始化driver异常!Message: 'automationName' can't be blank
+Stacktrace:
+InvalidArgumentError: 'automationName' can't be blank
+    at processCapabilities (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/lib/basedriver/capabilities.js:345:13)
+    at parseCapsForInnerDriver (/usr/local/lib/node_modules/appium/lib/utils.js:152:40)
+    at AppiumDriver.createSession (/usr/local/lib/node_modules/appium/lib/appium.js:622:49)
+    at commandExecutor (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/lib/basedriver/driver.ts:106:18)
+    at AppiumDriver.executeCommand (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/lib/basedriver/driver.ts:123:15)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at defaultBehavior (/usr/local/lib/node_modules/appium/lib/appium.js:1105:16)
+    at AppiumDriver.executeWrappedCommand (/usr/local/lib/node_modules/appium/lib/appium.js:1215:16)
+    at AppiumDriver.executeCommand (/usr/local/lib/node_modules/appium/lib/appium.js:1121:17)
+    at asyncHandler (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/lib/protocol/protocol.js:393:19)
+INFO     root:conftest.py:22 打开APP
+INFO     root:conftest.py:24 测试完成，关闭app

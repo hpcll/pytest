@@ -7,6 +7,7 @@ from config import *
 import pytest
 from driver import init_driver
 from loggers import JFMlogging
+
 logger = JFMlogging().getloger()
 
 
@@ -20,9 +21,11 @@ def function_fixture():
 def function_fixture2(request):
     request.instance.driver = init_driver()
     logger.info("打开APP")
+
     def driver_teardown():
         logger.info("测试完成，关闭app")
         request.instance.driver.close_app()
+
     request.addfinalizer(driver_teardown)
 
 
@@ -42,7 +45,6 @@ def module_fixture():
     yield d
     d.close_app()
     logger.info("测试完成，关闭app")
-
 
 #
 # def screen_shot(driver):

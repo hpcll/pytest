@@ -25,5 +25,5 @@ if __name__ == '__main__':
     # cmd = "appium"
     # os.system(cmd)
     pytest.main(['-s', '-v', './testcase/case/test_home.py', '-q', '--alluredir', './reports/result'])
-    init_report()
+    # init_report()
 
